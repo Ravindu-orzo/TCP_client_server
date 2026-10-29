@@ -1,0 +1,17 @@
+# Variables
+CC = gcc
+# Note: You need -lssl -lcrypto because you are using <openssl/sha.h>
+CFLAGS = -Wall
+LIBS = -lssl -lcrypto
+TARGET = server_3645
+SRC = server_3645.c
+
+# The build rule
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC) $(LIBS)
+
+# Clean rule to remove the compiled file
+clean:
+	rm -f $(TARGET)
